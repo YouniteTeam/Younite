@@ -2,16 +2,8 @@
     margin-bottom: 0;
 }
 
-#group {
-    max-width: 300px;
-}
-
-#grouprow {
-    height: 400px;
-}
-
 .parallax {
-    min-height: 750px;
+    min-height: 250px;
     background: url("../img/streetfood.jpg") no-repeat fixed center;
     background-size: cover;
 }
