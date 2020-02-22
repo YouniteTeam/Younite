@@ -3,7 +3,7 @@
 }
 
 .parallax {
-    min-height: 250px;
+    min-height: 500px;
     background: url("../img/streetfood.jpg") no-repeat fixed center;
     background-size: cover;
 }
