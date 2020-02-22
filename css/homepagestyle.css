@@ -1,3 +1,7 @@
+.jumbotron.text-center {
+    margin-bottom: 0;
+}
+
 #group {
     max-width: 300px;
 }
@@ -6,12 +10,8 @@
     height: 400px;
 }
 
-#purpose {
-    height: 300px;
-}
-
-.fit-image {
-    width: 100%;
-    object-fit: cover;
-    height: 200px;
+.parallax {
+    min-height: 750px;
+    background: url("../img/streetfood.jpg") no-repeat fixed center;
+    background-size: cover;
 }
