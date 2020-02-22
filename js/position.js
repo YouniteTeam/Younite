@@ -31,9 +31,14 @@ function showPosition(position) {
         "<br>Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude+
         "<br>Total: "+ totalLat + ", " + totalLong+
-        "<br>Center: "+ googleMapsLink(totalLat/peopleLocations.length, totalLong/peopleLocations.length, "link" ) ;
+        "<br>Maps link: "+ googleMapsLink(totalLat/peopleLocations.length, totalLong/peopleLocations.length, "link") +
+        "<br>" + googleMapsEmbed(totalLat/peopleLocations.length, totalLong/peopleLocations.length);
 }
 
 function googleMapsLink (lat, long, html ) {
     return "<a href='http://www.google.com/maps/search/"+ lat + ","+ long +"'>" +html+ "</a>" ;
+}
+
+function googleMapsEmbed (lat, long) {
+    return "<iframe width='1000' height='1000' id='gmap_canvas' src='https://maps.google.com/maps?q=" + lat + "," + long + "&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
 }
