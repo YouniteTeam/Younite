@@ -5,3 +5,9 @@
 .row {
     height: 400px;
 }
+
+.fit-image {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+}
