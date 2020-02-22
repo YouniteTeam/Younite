@@ -1,9 +1,13 @@
 #group {
-    max-width: 500px;
+    max-width: 300px;
 }
 
-.row {
+#grouprow {
     height: 400px;
+}
+
+#purpose {
+    height: 300px;
 }
 
 .fit-image {
