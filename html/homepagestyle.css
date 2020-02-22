@@ -1,3 +1,7 @@
 #group {
-    max-width: 150px;
+    max-width: 500px;
+}
+
+.row {
+    height: 400px;
 }
