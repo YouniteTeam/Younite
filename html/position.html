@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Find Position</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body onclick="getLocation()">
-    <p>Click the button to get your coordinates.</p>
-    <button onclick="getLocation()">Try It</button>
-    <p id="demo"></p>
+<body onload="getLocation()">
+    <div class="jumbotron text-center">
+        <img src="../img/Logo.png" width="200" height="200" alt="Younite">
+        <h1>Younite</h1>
+        <p>A Hackathon project by: Jakub, Lewis, Oscar, Tom H, Tom H</p>
+    </div>
+
+    <p id="position"></p>
     <script src="../js/position.js"></script>
 </body>
 </html>
