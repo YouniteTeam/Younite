@@ -40,7 +40,7 @@ function getPlace(lat, long) {
         .then(response => {
             return response.json();
         })
-        .then(users =>   {
-            console.log(users);
+        .then(log =>   {
+            return alert(JSON.stringify(log));
         });
 }
