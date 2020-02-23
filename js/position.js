@@ -26,12 +26,21 @@ function showPosition(position) {
         totalLat += peopleLocations[i][0];
     }
 
-    alert(getPlace(long, lat));
-
-    //outputElement.innerHTML = googleMapsEmbed(getPlace(long, lat));
+    getPlace(totalLat/peopleLocations.length, totalLong/peopleLocations.length);
+    outputElement.innerHTML = googleMapsEmbed("Southampton");
 }
 
 // Google Maps API key: AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4
 function googleMapsEmbed (location) {
     return "<iframe width=100% height='900' id='gmap_canvas' src='https://www.google.com/maps/embed/v1/search?q=food%20near" + location + "&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
+}
+
+function getPlace(lat, long) {
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4')
+        .then(response => {
+            return response.json();
+        })
+        .then(log =>   {
+            return alert(JSON.stringify(log));
+        });
 }
