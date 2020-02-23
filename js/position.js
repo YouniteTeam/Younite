@@ -27,12 +27,11 @@ function showPosition(position) {
     }
 
     getPlace(totalLat/peopleLocations.length, totalLong/peopleLocations.length);
-    outputElement.innerHTML = googleMapsEmbed("Southampton");
 }
 
 // Google Maps API key: AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4
 function googleMapsEmbed (location) {
-    return "<iframe width=100% height='900' id='gmap_canvas' src='https://www.google.com/maps/embed/v1/search?q=food%20near" + location + "&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
+    return outputElement.innerHTML = "<iframe width=100% height='900' id='gmap_canvas' src='https://www.google.com/maps/embed/v1/search?q=food%20near" + location + "&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
 }
 
 function getPlace(lat, long) {
@@ -41,6 +40,11 @@ function getPlace(lat, long) {
             return response.json();
         })
         .then(log =>   {
-            return alert(JSON.stringify(log));
+            console.log(log);
+            return cleanJson(JSON.stringify(log));
         });
+}
+
+function cleanJson(json) {
+    return googleMapsEmbed(json.substring(39, json.indexOf("global_code") - 3));
 }
