@@ -31,19 +31,13 @@
                     needs "food" or "store" or "point_of_interest"
         */
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var myObj = JSON.parse(this.responseText);
-                console.log(myObj);
-                // for(i in myObj.pets){
-                //     document.getElementById("demo").innerHTML += myObj.pets[i].name;
-                // }
-                console.log(myObj.results.geometry[0].location.lat);
-            }
-        };
-        xmlhttp.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.937683,-1.395447&radius=100&types=food&key=AIzaSyDWSGa2okzvgOf5dlX6bAgUPweM2Zntdi0", true);
-        xmlhttp.send();
+        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4')
+            .then(response => {
+                return response.json();
+            })
+            .then(users =>   {
+                console.log(users);
+            });
 
 
     }
