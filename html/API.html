@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<h2>Use the XMLHttpRequest to get the content of a file.</h2>
+<p>The content is written in JSON format, and can easily be converted into a JavaScript object.</p>
+
+<p id="demo"></p>
+
+<p>Take a look at <a href="../js/json_demo.txt" target="_blank">json_demo.txt</a></p>
+
+<button onclick="parseJSONplaces()" >Try</button>
+
+<script>
+    function parseJSONplaces(){
+        /*  .results
+                .geometry
+                    .location
+                        .lat
+                        .lng
+                .name
+                .photos
+                    .photo_reference
+                .rating
+                .types
+                    needs "food" or "store" or "point_of_interest"
+        */
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myObj = JSON.parse(this.responseText);
+                console.log(myObj);
+                // for(i in myObj.pets){
+                //     document.getElementById("demo").innerHTML += myObj.pets[i].name;
+                // }
+                console.log(myObj.results.geometry[0].location.lat);
+            }
+        };
+        xmlhttp.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.937683,-1.395447&radius=100&types=food&key=AIzaSyDWSGa2okzvgOf5dlX6bAgUPweM2Zntdi0", true);
+        xmlhttp.send();
+
+
+    }
+</script>
+
+
+</body>
+</html>
