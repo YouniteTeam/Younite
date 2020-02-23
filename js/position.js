@@ -2,9 +2,10 @@ var outputElement = document.getElementById("position");
 
 //[Latitude, longitude]
 var peopleLocations = [
-    [ 50.937683, -1.395447 ], //us
-    [ 50.913853, -1.367283], //chessel ave
-    [ 50.903466, -1.405920 ] // west quay
+    [ 51.248210, -2.850712 ], // Stone Allerton
+    [ 52.205337, 0.121817 ], // Cambridge
+    [ 51.277283, -0.842655 ], // Fleet
+    [ 50.718412, -3.533899 ] // Exeter
 ];
 
 function getLocation() {
@@ -25,9 +26,10 @@ function showPosition(position) {
         totalLat += peopleLocations[i][0];
     }
 
-    outputElement.innerHTML = googleMapsEmbed(totalLat/peopleLocations.length, totalLong/peopleLocations.length);
+    outputElement.innerHTML = googleMapsEmbed("Exeter");
 }
 
-function googleMapsEmbed (lat, long) {
-    return "<iframe width=100% height='900' id='gmap_canvas' src='https://maps.google.com/maps?q=" + lat + "," + long + "&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
+// Google Maps API key: AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4
+function googleMapsEmbed (location) {
+    return "<iframe width=100% height='900' id='gmap_canvas' src='https://www.google.com/maps/embed/v1/search?q=food%20near" + location + "&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
 }
