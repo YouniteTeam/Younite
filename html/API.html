@@ -30,15 +30,55 @@
                 .types
                     needs "food" or "store" or "point_of_interest"
         */
+        //AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4
+        var APIkey = AIzaSyDWSGa2okzvgOf5dlX6bAgUPweM2Zntdi0;
+        var lat = 50.937683;
+        var lng = -1.395447;
+        var radius = 100;
+        var type = "food";
 
-        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyDW_Iu5rRhPQJLOaMGJMydLJm6tW1cMej4')
+        //  var response = fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+lat+','+lng+'&radius='+radius+'&types='+type+'&key='+APIkey)
+        var response = fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&radius='+radius+'&key='+APIkey);
             .then(response => {
-                return response.json();
+                response.json().then(function (parseJson) {
+                    for (i in parseJson.results){
+                        console.log(parseJson.results[i]);
+
+                        console.log(parseJson.results[i].geometry.location.lat);
+                        var lat = parseJson.results[i].geometry.location.lat;
+                        console.log(parseJson.results[i].geometry.location.lng);
+                        var lng = parseJson.results[i].geometry.location.lng;
+
+                        //console.log(parseJson.results[i].name);
+                        //var name = parseJson.results[i].name;
+
+                        //console.log(parseJson.results[i].photos.photo_reference);
+                        //var photoRef = parseJson.results[i].photos.photo_reference;
+                        /*
+                        var image = "<img src='https://maps.googleapis.com/maps/api/place/photo?" +
+                            "maxwidth=400\n" +
+                            "&photoreference="+ photoRef +
+                            "&key=AIzaSyDWSGa2okzvgOf5dlX6bAgUPweM2Zntdi0\n'>";
+                        */
+
+                        //console.log(parseJson.results[i].rating);
+                        var rating = parseJson.results[i].rating;
+
+                        console.log(parseJson.results[i].types);
+                        var gotFood = false;
+                        for (e in parseJson.results[i].types){
+                            if (e == "food"){
+                                gotFood = true;
+                            }
+                        }
+
+                        console.log("-----");
+                    }
+                });
             })
             .then(users =>   {
                 console.log(users);
             });
-
 
     }
 </script>
